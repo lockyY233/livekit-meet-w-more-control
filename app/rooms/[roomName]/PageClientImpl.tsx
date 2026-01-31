@@ -487,7 +487,7 @@ function RoomShell(props: {
           </select>
         </div>
         <div className="control-group">
-          <button className="lk-button" onClick={props.onLeave}>
+          <button className="lk-button leave-button" onClick={props.onLeave}>
             Leave
           </button>
         </div>
