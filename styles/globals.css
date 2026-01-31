@@ -2,17 +2,14 @@
   box-sizing: border-box;
 }
 
-html {
-  color-scheme: dark;
-  background-color: #111;
-}
-
 html,
 body {
-  overflow: hidden;
   width: 100%;
   height: 100%;
-  margin: 0px;
+  margin: 0;
+  background: #0f1115;
+  color: #f2f4f8;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
 }
 
 body {
@@ -20,48 +17,163 @@ body {
   flex-direction: column;
 }
 
-.header {
-  max-width: 500px;
-  padding-inline: 2rem;
+.simple-page {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
 }
 
-.header > img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
+.simple-card {
+  width: min(560px, 100%);
+  border: 1px solid #2a2f3a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #161a22;
 }
 
-.header > h2 {
-  font-family: 'TWK Everett', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 144%;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+.simple-card h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
 }
 
-footer {
+.simple-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.simple-row input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2a2f3a;
+  background: #0f1115;
+  color: inherit;
+}
+
+.simple-help {
+  margin: 0.75rem 0 0;
+  color: #9aa3b2;
+  font-size: 0.9rem;
+}
+
+.room-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.room-grid {
+  flex: 1;
+  padding: 0.75rem;
+  position: relative;
+}
+
+.room-grid .tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.room-grid .lk-participant-tile {
+  width: 280px;
+  height: 210px;
+}
+
+.room-grid .lk-participant-tile video,
+.room-grid .lk-participant-tile canvas {
+  object-fit: cover;
+}
+
+.room-grid .tile-wrapper {
+  cursor: pointer;
+}
+
+.room-grid-focused .tile-grid {
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+}
+
+.room-grid-focused .lk-participant-tile {
+  width: min(1200px, 100%);
+  height: min(70vh, 720px);
+}
+
+.focus-exit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+}
+
+.room-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-top: 1px solid #2a2f3a;
+  background: #141821;
+}
+
+.room-controls .control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.room-controls label {
+  font-size: 0.85rem;
+  color: #b6bfcc;
+}
+
+.room-controls select,
+.room-controls input[type='range'] {
+  background: #0f1115;
+  color: inherit;
+  border: 1px solid #2a2f3a;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+.participant-volumes {
+  border-top: 1px solid #2a2f3a;
+  background: #0f1115;
+  padding: 0.75rem;
+}
+
+.participant-volumes-title {
+  font-size: 0.9rem;
+  color: #b6bfcc;
+  margin-bottom: 0.5rem;
+}
+
+.participant-volumes-empty {
+  color: #7c8798;
+  font-size: 0.85rem;
+}
+
+.participant-volume-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 48px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.participant-volume-row input[type='range'] {
   width: 100%;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6);
-  background-color: var(--lk-bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-footer a,
-h2 a {
-  color: #ff6352;
-  text-decoration-color: #a33529;
-  text-underline-offset: 0.125em;
+.participant-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-footer a:hover,
-h2 a {
-  text-decoration-color: #ff6352;
-}
-
-h2 a {
-  text-decoration: none;
+.participant-volume-value {
+  font-size: 0.8rem;
+  color: #9aa3b2;
+  text-align: right;
 }
