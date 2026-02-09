@@ -12,6 +12,7 @@ export default async function Page({
     region?: string;
     hq?: string;
     codec?: string;
+    name?: string;
   }>;
 }) {
   const _params = await params;
@@ -28,6 +29,7 @@ export default async function Page({
       region={_searchParams.region}
       hq={hq}
       codec={codec}
+      participantName={_searchParams.name}
     />
   );
 }

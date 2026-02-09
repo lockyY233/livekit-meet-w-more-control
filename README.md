@@ -2,41 +2,29 @@
   <img src="./.github/assets/livekit-mark.png" alt="LiveKit logo" width="100" height="100">
 </a>
 
-# LiveKit Meet
+
+
+# LiveKit Meet With More Control
 
 <p>
-  <a href="https://meet.livekit.io"><strong>Try the demo</strong></a>
-  •
-  <a href="https://github.com/livekit/components-js">LiveKit Components</a>
-  •
-  <a href="https://docs.livekit.io/">LiveKit Docs</a>
-  •
-  <a href="https://livekit.io/cloud">LiveKit Cloud</a>
-  •
-  <a href="https://blog.livekit.io/">Blog</a>
+  This is a fork of <a href="https://github.com/livekit-examples/livekit-meet">LiveKit Meet</a> with more control over the meeting room while also keeping it as light weight as possible for it to be able to run on a 1-2GB ram server.
 </p>
 
-<br>
 
-LiveKit Meet is an open source video conferencing app built on [LiveKit Components](https://github.com/livekit/components-js), [LiveKit Cloud](https://cloud.livekit.io/), and Next.js. It's been completely redesigned from the ground up using our new components library.
+## Features
 
-![LiveKit Meet screenshot](./.github/assets/livekit-meet.jpg)
+- **Lightweight** - Runs on a 1-2GB ram server
+- **Easy to deploy** - Just run the docker container
+- **Customizable** - Change the theme, colors, and more
+- **Secure** - Uses LiveKit's secure token system
+- **Open Source** - MIT License
 
-## Tech Stack
+# Deployment
 
-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-- App is built with [@livekit/components-react](https://github.com/livekit/components-js/) library.
+## PNPM
 
-## Demo
-
-Give it a try at https://meet.livekit.io.
-
-## Dev Setup
-
-Steps to get a local dev setup up and running:
-
-1. Run `pnpm install` to install all dependencies.
-2. Copy `.env.example` in the project root and rename it to `.env.local`.
-3. Update the missing environment variables in the newly created `.env.local` file.
-4. Run `pnpm dev` to start the development server and visit [http://localhost:3000](http://localhost:3000) to see the result.
-5. Start development 🎉
+```bash
+pnpm install
+pnpm build
+pnpm start
+```

@@ -12,7 +12,16 @@ export default function Page() {
     if (!roomName.trim()) {
       return;
     }
-    router.push(`/rooms/${roomName.trim()}`);
+    const prompted = window.prompt('Enter your nickname');
+    if (prompted === null) {
+      return;
+    }
+    const nickname = prompted.trim();
+    if (!nickname) {
+      return;
+    }
+    const query = new URLSearchParams({ name: nickname });
+    router.push(`/rooms/${roomName.trim()}?${query.toString()}`);
   }, [roomName, router]);
 
   return (
